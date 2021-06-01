@@ -1,0 +1,107 @@
+﻿
+<script src="~/Scripts/angular.js/angular.js"></script>
+
+<script src="~/Scripts/angular.min.js"> </script>
+
+<script src="~/Scripts/AngularScripts/app.js"></script>
+
+<script src="~/Scripts/AngularScripts/customerController.js"></script>
+
+<script src="~/Scripts/AngularScripts/Service.js"></script>
+
+<div ng-app="customerapp">
+    <div ng-controller="customerctrl">
+
+        <form id="Customer" name="customerForm" ng-submit="customerForm.$valid"  class="form-horizontal">
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>
+                        <input type="text" id="firstName" name="FirstName" ng-model="fName" required  />
+                        <span ng-messages="customerForm.FirstName.$error.required" style="color:red" ng-show="customerForm.FirstName.$dirty 
+                              && customerForm.FirstName.$invalid">
+                            <span ng-show="customerForm.FirstName.$error.required" ng-message="required">First Name is required.</span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <th>
+                        <input type="text" id="lastName" name="LastName" ng-model="lName" required />
+                       
+                        <span ng-messages="customerForm.LastName.$error.required" style="color:red" ng-show="customerForm.LastName.$dirty
+                              && customerForm.LastName.$invalid">
+                            <span ng-show="customerForm.LastName.$error.required" ng-message="required">Last Name is required.</span>
+                        </span>
+                    </th>
+
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <th>
+                        <input type="email" id="email" name="Email" ng-model="email" required ng-mouseleave="" />
+                        <span ng-messages="customerForm.Email.$error.required" style="color:red" ng-show="customerForm.Email.$dirty
+                              && customerForm.Email.$invalid">
+                            <span ng-show="customerForm.Email.$error.required" ng-message="required">Email is required.</span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <th><input type="number" id="phone" name="Phone" ng-model="phone"  required/></th>
+                </tr> 
+                <tr >
+                   <th class="col-lg-1"> 
+                    <input type="button"  style="background-color:aquamarine;" ng-disabled="customerForm.$invalid" 
+                           value="{{btnText}}" class="btn btn-primary" ng-click="CreateOrUpdateCustomer()" /> 
+                   </th>
+                </tr>
+            </table>
+
+        </form>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th style="display:none">Customer ID:</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in customers">
+                    <td style="display:none">{{data.CustId}}</td>
+                    <td>{{data.FirstName}}</td>
+                    <td>{{data.LastName}}</td>
+                    <td>{{data.Email}}</td>
+                    <td>{{data.Phone}}</td>
+                    <td style="text-align:right; ">
+                        <span>
+                            
+                            <input type="button"  value="Edit" class="btn-primary" ng-click="getCustomerById(data.CustId)"/>
+                            @*<span id="save" class="btn btn-primary "
+                                  ng-click="getCustomerById(data)">
+                                Edit
+                            </span>*@
+                        </span>
+                    </td>
+                    <td style="text-align:right; ">
+                        <span>
+                            <input type="button" value="Delete" class="btn-danger" ng-click="deleteCustomer(data.CustId)" />
+                            @*<span id="save" class="btn btn-danger"
+              ng-click="">
+            Delete
+        </span>*@
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+
