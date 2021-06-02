@@ -1,0 +1,13 @@
+download all the project 
+open this project in visual studio id 2019
+execute below script on Mircosoft sql server studio 2018
+CREATE TABLE [dbo].[customer](
+	[CustId] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[FirstName] [varchar](100) NULL,
+	[LastName] [varchar](100) NULL,
+	[Email] [varchar](100) NULL,
+	[Phone] [int] NULL,
+	[CustomerStatus] [varchar](10) NULL)
+  
+  open Web.Config file in that search connection string named 'Customer' then replace below fields with your own credentials as
+  data source=your sql server name;initial catalog=db name; user=;pwd=
