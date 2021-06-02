@@ -11,3 +11,5 @@ CREATE TABLE [dbo].[customer](
   
   open Web.Config file in that search connection string named 'Customer' then replace below fields with your own credentials as
   data source=your sql server name;initial catalog=db name; user=;pwd=
+
+this project is basically designed in 1) ASP.Net MVC 2) Angular JS 3) Web API 4) Entity Framework 6.x 5) SQL SERVER 
